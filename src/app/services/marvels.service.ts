@@ -13,7 +13,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
   httpParams: new HttpParams(httpParams)
 };
-const apiUrl = "http://gateway.marvel.com/v1/public/characters?apikey=82744fdc803f1e31bcc6cbedcbe607c0";
+const apiUrl = "http://gateway.marvel.com/v1/public/characters";
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +49,7 @@ export class MarvelsService {
 
   load() {
     return new Promise(resolve => {
-      this.http.get(apiUrl,httpOptions).subscribe(data => {
+      this.http.get(apiUrl+'?apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe(data => {
         this.Marvels = data.data.results.map(item => new character(item));
         console.log(this.Marvels);
         resolve(true);
@@ -59,6 +59,17 @@ export class MarvelsService {
     });
   }
 
+  getMarvel(marvelId) {
+    return new Promise(resolve => {
+      this.http.get(apiUrl+'/'+ marvelId +'?apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe(data => {
+        //this.Marvels = data.data.results.map(item => new character(item));
+        console.log(data.data.results.map(item => new character(item)));
+        resolve(data.data.results.map(item => new character(item)));
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 
   // load(): Observable<any> {
   //   return this.http.get(apiUrl, httpOptions).pipe(

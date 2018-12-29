@@ -1,9 +1,20 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Detail</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ marvel.name }}</ion-title>
+      </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-card>
+        <ion-img src="{{marvel.card}}"></ion-img>
+        <ion-card-header>
+            <ion-card-title>Hello World</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <p>The content for this card</p>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
