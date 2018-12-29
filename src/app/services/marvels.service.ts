@@ -50,8 +50,7 @@ export class MarvelsService {
   load() {
     return new Promise(resolve => {
       this.http.get(apiUrl,httpOptions).subscribe(data => {
-        console.log(JSON.parse(JSON.stringify(data.data.results)));      
-        this.Marvels = JSON.parse(JSON.stringify(data.data.results));
+        this.Marvels = data.data.results.map(item => new character(item));
         console.log(this.Marvels);
         resolve(true);
       }, err => {
