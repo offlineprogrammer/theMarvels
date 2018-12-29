@@ -15,8 +15,13 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit(){
-
-    this.marvelsService.load();
+console.log('Starting');
+    this.marvelsService.load().then((response) => {
+      console.log(this.marvelsService.Marvels); 
+      console.log(response);       
+    }).catch((err) => {
+      console.warn(err);
+    });;;
     
   }
 

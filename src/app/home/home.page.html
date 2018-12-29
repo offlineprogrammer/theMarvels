@@ -8,7 +8,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item button detail *ngFor="let marvel of marvelService.Marvels" [href]="'/details/'+marvel.id" routerDirection="forward" >
+    <ion-item button detail *ngFor="let marvel of this.marvelsService.Marvels" [href]="'/details/'+marvel.id" routerDirection="forward" >
       <ion-label>{{ marvel.name }}</ion-label>
 
     </ion-item>

@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import { character } from '../interfaces/character';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
+import { HttpParamsOptions } from '@angular/common/http/src/params';
 
+
+const myObject: any = { hash: 'thisThing'};
+const httpParams: HttpParamsOptions = { fromObject: myObject } as HttpParamsOptions
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json'}),
+  httpParams: new HttpParams(httpParams)
 };
-const apiUrl = "https://gateway.marvel.com/";
+const apiUrl = "http://gateway.marvel.com/v1/public/characters?apikey=82744fdc803f1e31bcc6cbedcbe607c0";
 
 @Injectable({
   providedIn: 'root'
@@ -36,15 +41,31 @@ export class MarvelsService {
   }
   
   private extractData(res: Response) {
+    console.log(res);
     let body = res;
     return body || { };
   }
 
-  load(): Observable<any> {
-    return this.http.get(apiUrl, httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleError));
+
+  load() {
+    return new Promise(resolve => {
+      this.http.get(apiUrl,httpOptions).subscribe(data => {
+        console.log(JSON.parse(JSON.stringify(data.data.results)));      
+        this.Marvels = JSON.parse(JSON.stringify(data.data.results));
+        console.log(this.Marvels);
+        resolve(true);
+      }, err => {
+        console.log(err);
+      });
+    });
   }
+
+
+  // load(): Observable<any> {
+  //   return this.http.get(apiUrl, httpOptions).pipe(
+  //     map(this.extractData),
+  //     catchError(this.handleError));
+  // }
   
 
 }
