@@ -17,7 +17,14 @@ export class DetailPage implements OnInit {
     private route: ActivatedRoute,
     private navCtrl: NavController,
     private marvelsService: MarvelsService
-  ) {}
+  ) {
+    this.marvel={
+      id: '',
+      name: '',
+      thumbnail: '',
+      card: ''
+    };
+  }
 
   ngOnInit() {
     let marvelId = this.route.snapshot.paramMap.get('id');
