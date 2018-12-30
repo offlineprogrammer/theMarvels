@@ -21,6 +21,7 @@ const apiUrl = "http://gateway.marvel.com/v1/public/characters";
 export class MarvelsService {
 
   public Marvels : character[] = [];
+  public Offset : number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -49,8 +50,9 @@ export class MarvelsService {
 
   load() {
     return new Promise(resolve => {
-      this.http.get(apiUrl+'?apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe(data => {
-        this.Marvels = data.data.results.map(item => new character(item));
+      this.http.get(apiUrl+'?offset='+this.Offset+'&apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe(data => {
+        this.Marvels = this.Marvels.concat( data.data.results.map(item => new character(item)));
+        this.Offset = this.Offset+20;
         console.log(this.Marvels);
         resolve(true);
       }, err => {

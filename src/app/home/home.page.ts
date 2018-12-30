@@ -25,4 +25,26 @@ export class HomePage implements OnInit {
         console.warn(err);
       });
   }
+
+  loadData(event) {
+    setTimeout(() => {
+
+      this.marvelsService
+      .load()
+      .then(response => {
+        console.log(this.marvelsService.Marvels);
+        console.log(response);
+        console.log('Done');
+        event.target.complete();
+//        event.target.disabled = true;
+  
+      })
+      .catch(err => {
+        console.warn(err);
+      });
+      
+
+    }, 500);
+  }
+
 }
