@@ -25,7 +25,8 @@ export class DetailPage implements OnInit {
       card: '',
       comics_count:0,
       charUrls:{},
-      comics_url:''
+      comics_url:'',
+      detail_url:''
     };
   }
 
