@@ -50,7 +50,7 @@ export class MarvelsService {
 
   load() {
     return new Promise(resolve => {
-      this.http.get(apiUrl+'?offset='+this.Offset+'&apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe(data => {
+      this.http.get(apiUrl+'?offset='+this.Offset+'&apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe((data:any) => {
         this.Marvels = this.Marvels.concat( data.data.results.map(item => new character(item)));
         this.Offset = this.Offset+20;
         console.log(this.Marvels);
@@ -63,7 +63,7 @@ export class MarvelsService {
 
   getMarvel(marvelId) {
     return new Promise(resolve => {
-      this.http.get(apiUrl+'/'+ marvelId +'?apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe(data => {
+      this.http.get(apiUrl+'/'+ marvelId +'?apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe((data:any) => {
         //this.Marvels = data.data.results.map(item => new character(item));
         console.log(data.data.results.map(item => new character(item)));
         resolve(data.data.results.map(item => new character(item)));
