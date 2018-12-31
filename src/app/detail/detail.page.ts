@@ -23,7 +23,8 @@ export class DetailPage implements OnInit {
       name: '',
       thumbnail: '',
       card: '',
-      comics_count:0
+      comics_count:0,
+      charUrls:{}
     };
   }
 
@@ -33,6 +34,7 @@ export class DetailPage implements OnInit {
      this.marvelsService.getMarvel(marvelId).then(response => {
       console.log(response);
       this.marvel = response[0];
+      console.log(this.marvel.charUrls['comiclink']);
     })
     .catch(err => {
       console.warn(err);
