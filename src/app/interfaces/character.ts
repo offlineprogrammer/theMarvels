@@ -19,6 +19,9 @@ export class character {
       item.thumbnail.path + "/standard_xlarge." + item.thumbnail.extension;
     this.comics_count = item.comics.available;
 
+   // this.charUrls = item.urls.reduce(function (map, obj) { map[obj.type] = obj.url; return map; });
+
+
     this.charUrls = item.urls.reduce(function (map, obj) {
       map[obj.type] = obj.url;
       return map;
