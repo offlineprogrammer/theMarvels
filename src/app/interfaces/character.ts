@@ -19,5 +19,11 @@ export class character {
         map[obj.type] = obj.url;
         return map;
     }, {});
+
+
+    //this.charUrls=item.urls.reduce((map, obj) => map[obj.type] = obj.url);
+      //this.charUrls= item.urls;
+
+      //this.charUrls= item.urls.map(item => [item.type,item.url]);
   }
 }
