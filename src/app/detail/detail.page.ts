@@ -24,7 +24,8 @@ export class DetailPage implements OnInit {
       thumbnail: '',
       card: '',
       comics_count:0,
-      charUrls:{}
+      charUrls:{},
+      comics_url:''
     };
   }
 

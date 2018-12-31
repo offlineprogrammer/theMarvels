@@ -5,6 +5,7 @@ export class character {
   card: string;
   comics_count: number;
   charUrls: { [index: string]: string } = {};
+  comics_url: string;
 
   constructor(item: any) {
     this.id = item.id;
@@ -20,6 +21,7 @@ export class character {
         return map;
     }, {});
 
+this.comics_url = this.charUrls['comiclink'];
 
     //this.charUrls=item.urls.reduce((map, obj) => map[obj.type] = obj.url);
       //this.charUrls= item.urls;
