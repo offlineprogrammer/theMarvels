@@ -3,6 +3,7 @@ import { NavController } from "@ionic/angular";
 import { MarvelsService } from "../services/marvels.service";
 import { character } from "../interfaces/character";
 import { ActivatedRoute } from '@angular/router';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: "app-detail",
@@ -16,7 +17,8 @@ export class DetailPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private marvelsService: MarvelsService
+    private marvelsService: MarvelsService,
+    private iab: InAppBrowser
   ) {
     this.marvel={
       id: '',
