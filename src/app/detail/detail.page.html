@@ -10,16 +10,13 @@
 <ion-content padding>
     <ion-card>
         <ion-img src="{{marvel.card}}"></ion-img>
-        <ion-card-header>
-            <ion-card-title>Hello World</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <p>The content for this card</p>
-        </ion-card-content>
+        
     </ion-card>
-    <ion-item>
-        <ion-badge color="success" slot="start">{{marvel.comics_count}}</ion-badge>
-        <ion-label>Comics</ion-label>
-        <ion-badge slot="end">22</ion-badge>
-      </ion-item>
+    <ion-card>
+        <ion-item>
+            <ion-badge color="success" slot="start">{{marvel.comics_count}}</ion-badge>
+          <ion-label>Comics</ion-label>
+          <ion-button fill="outline" slot="end">View</ion-button>
+        </ion-item>
+      </ion-card>
 </ion-content>
