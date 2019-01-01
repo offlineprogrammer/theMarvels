@@ -1,22 +1,23 @@
 <ion-header>
     <ion-toolbar color="primary">
         <ion-buttons slot="start">
-          <ion-back-button defaultHref="/home"></ion-back-button>
+            <ion-back-button defaultHref="/home"></ion-back-button>
         </ion-buttons>
-        <ion-title>{{ marvel.name }}</ion-title>
-      </ion-toolbar>
+        <ion-title>The Marvels</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
     <ion-card>
+        <ion-card-header>
+
+            <ion-card-title>{{ marvel.name }}</ion-card-title>
+        </ion-card-header>
         <ion-img src="{{marvel.card}}"></ion-img>
-        
+
     </ion-card>
-    <ion-card>
-        <ion-item>
-            <ion-badge color="success" slot="start">{{marvel.comics_count}}</ion-badge>
-          <ion-label>Comics</ion-label>
-          <ion-button fill="outline" slot="end">View</ion-button>
-        </ion-item>
-      </ion-card>
+    <ion-button color="danger" href="{{marvel.comics_url}}" shape="round" size="large" expand="block">View
+        Comics({{marvel.comics_count}})</ion-button>
+    <ion-button color="warning" href="{{marvel.detail_url}}" shape="round" size="large" expand="block">More Details</ion-button>
+
 </ion-content>
