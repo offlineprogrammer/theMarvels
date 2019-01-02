@@ -8,6 +8,8 @@ import { MarvelsService } from "../services/marvels.service";
   styleUrls: ["home.page.scss"]
 })
 export class HomePage implements OnInit {
+  queryText = '';
+
   constructor(
     private navCtrl: NavController,
     private marvelsService: MarvelsService
@@ -16,7 +18,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     console.log("Starting");
     this.marvelsService
-      .load()
+      .load(null)
       .then(response => {
         console.log(this.marvelsService.Marvels);
         console.log(response);
@@ -26,11 +28,28 @@ export class HomePage implements OnInit {
       });
   }
 
+  updateTheMarvels(){
+
+    console.log("Updae");
+    this.marvelsService.Marvels = [];
+    this.marvelsService.Offset = 0;
+    this.marvelsService
+      .load(this.queryText)
+      .then(response => {
+        console.log(this.marvelsService.Marvels);
+        console.log(response);
+      })
+      .catch(err => {
+        console.warn(err);
+      });
+
+  }
+
   loadData(event) {
     setTimeout(() => {
 
       this.marvelsService
-      .load()
+      .load(this.queryText)
       .then(response => {
         console.log(this.marvelsService.Marvels);
         console.log(response);

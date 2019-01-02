@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar  color="primary">
     <ion-title>
         The Marvels
     </ion-title>
+    <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateTheMarvels()" placeholder="Search"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <ion-item button detail *ngFor="let marvel of this.marvelsService.Marvels" [href]="'/details/'+marvel.id" routerDirection="forward" >
       <ion-thumbnail slot="start">

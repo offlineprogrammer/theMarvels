@@ -48,9 +48,24 @@ export class MarvelsService {
   }
 
 
-  load() {
+  load(query) {
+
+    let theAPIUrl = '';
+    if(!query){
+      query=''
+      theAPIUrl = apiUrl+'?offset='+this.Offset+'&apikey=82744fdc803f1e31bcc6cbedcbe607c0';
+      
+    }else {
+      console.log('it is null');
+       theAPIUrl = apiUrl+'?nameStartsWith='+query+'&offset='+this.Offset+'&apikey=82744fdc803f1e31bcc6cbedcbe607c0';
+       console.log(theAPIUrl);
+    }
+
+    
+
+
     return new Promise(resolve => {
-      this.http.get(apiUrl+'?offset='+this.Offset+'&apikey=82744fdc803f1e31bcc6cbedcbe607c0',httpOptions).subscribe((data:any) => {
+      this.http.get(theAPIUrl,httpOptions).subscribe((data:any) => {
         this.Marvels = this.Marvels.concat( data.data.results.map(item => new character(item)));
         this.Offset = this.Offset+20;
         console.log(this.Marvels);
