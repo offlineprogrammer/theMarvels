@@ -32,6 +32,11 @@ export class DetailPage implements OnInit {
     };
   }
 
+  openComics() {
+    window.open(this.marvel.comics_url, '_system', 'location=yes');
+  
+  }
+
   ngOnInit() {
     let marvelId = this.route.snapshot.paramMap.get('id');
     console.log(marvelId);

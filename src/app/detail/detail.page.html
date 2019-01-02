@@ -16,7 +16,7 @@
         <ion-img src="{{marvel.card}}"></ion-img>
 
     </ion-card>
-    <ion-button color="danger" href="{{marvel.comics_url}}" shape="round" size="large" expand="block">View
+    <ion-button color="danger" (click)="openComics()" shape="round" size="large" expand="block">View
         Comics({{marvel.comics_count}})</ion-button>
     <ion-button color="warning" href="{{marvel.detail_url}}" shape="round" size="large" expand="block">More Details</ion-button>
 
