@@ -18,6 +18,6 @@
     </ion-card>
     <ion-button color="danger" (click)="openComics()" shape="round" size="large" expand="block">View
         Comics({{marvel.comics_count}})</ion-button>
-    <ion-button color="warning" href="{{marvel.detail_url}}" shape="round" size="large" expand="block">More Details</ion-button>
+    <ion-button color="warning" (click)="OpenDetail()" shape="round" size="large" expand="block">More Details</ion-button>
 
 </ion-content>
