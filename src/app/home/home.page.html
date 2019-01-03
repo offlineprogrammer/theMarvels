@@ -1,10 +1,13 @@
 <ion-header>
   <ion-toolbar  color="primary">
-    <ion-title>
+    <ion-title text-center>
         The Marvels
     </ion-title>
-    <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateTheMarvels()" placeholder="Search"></ion-searchbar>
+    
   </ion-toolbar>
+  <ion-toolbar color="primary">
+      <ion-searchbar [(ngModel)]="queryText" (ionChange)="updateTheMarvels()" placeholder="Search"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
