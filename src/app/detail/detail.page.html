@@ -11,12 +11,12 @@
     <ion-card>
         <ion-card-header>
 
-            <ion-card-title>{{ marvel.name }}</ion-card-title>
+            <ion-card-title ion-text color="warning" text-center>{{ marvel.name }}</ion-card-title>
         </ion-card-header>
         <ion-img src="{{marvel.card}}"></ion-img>
 
     </ion-card>
-    <ion-button color="danger" (click)="openComics()" shape="round" size="large" expand="block">View
+    <ion-button color="success" (click)="openComics()" shape="round" size="large" expand="block">View
         Comics({{marvel.comics_count}})</ion-button>
     <ion-button color="warning" (click)="OpenDetail()" shape="round" size="large" expand="block">More Details</ion-button>
 
