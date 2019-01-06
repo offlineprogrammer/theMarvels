@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list lines="full">
     <ion-item button detail *ngFor="let marvel of this.marvelsService.Marvels" [href]="'/details/'+marvel.id" routerDirection="forward" >
       <ion-thumbnail slot="start">
         <img src="{{marvel.thumbnail}}">
