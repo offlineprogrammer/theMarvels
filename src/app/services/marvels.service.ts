@@ -13,7 +13,7 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
   httpParams: new HttpParams(httpParams)
 };
-const apiUrl = "http://gateway.marvel.com/v1/public/characters";
+const apiUrl = "https://gateway.marvel.com/v1/public/characters";
 
 @Injectable({
   providedIn: 'root'

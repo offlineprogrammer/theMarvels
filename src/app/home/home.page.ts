@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private marvelsService: MarvelsService,
+    public marvelsService: MarvelsService,
     private loadingController: LoadingController
   ) {}
 

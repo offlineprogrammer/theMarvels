@@ -12,7 +12,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class DetailPage implements OnInit {
 
-  private marvel: character;
+  public marvel: character;
 
   constructor(
     private route: ActivatedRoute,
